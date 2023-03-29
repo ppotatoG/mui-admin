@@ -1,5 +1,4 @@
-// stores/index.ts
-import { combineReducers, createStore } from 'redux';
+import { combineReducers } from 'redux';
 import darkModeReducer from './darkMode';
 
 const rootReducer = combineReducers({
@@ -8,6 +7,4 @@ const rootReducer = combineReducers({
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-const store = createStore(rootReducer);
-
-export default store;
+export default rootReducer;

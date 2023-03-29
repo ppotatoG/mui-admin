@@ -28,10 +28,9 @@ i18n
   .then();
 
 import { Provider } from 'react-redux';
-import { store } from '@stores';
+import store from '@stores';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  // useDispatch와 useSelector를 사용하기 전에 Provider로 감싸야 함
   return (
     <I18nextProvider i18n={i18n}>
       <Provider store={store}>
