@@ -27,15 +27,18 @@ i18n
   })
   .then();
 
-import { Provider } from 'react-redux';
-import store from '@stores';
+import ThemeContextProvider from '@contexts/ThemeContext';
+import { ThemeProvider } from 'styled-components';
+import themes from '@styles/themes';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <I18nextProvider i18n={i18n}>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+      <ThemeContextProvider>
+        <ThemeProvider theme={themes.light}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </ThemeContextProvider>
     </I18nextProvider>
   );
 };

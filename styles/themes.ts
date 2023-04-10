@@ -1,32 +1,29 @@
 import colors from '@styles/_themes-vars.module.scss';
 
 const themes = {
-  light: {
-    background: '#fff',
-    text: '#333',
+  dark: {
+    background: colors.paper,
+    text: colors.grey900,
     paper: colors.paper,
     primary: colors.primaryLight,
     secondary: colors.secondaryLight,
-    warning: colors.warning,
+    warning: colors.warningLight,
     error: colors.errorLight,
-    orange: colors.orangeLight,
   },
-  dark: {
+  light: {
     background: colors.darkBackground,
-    text: colors.darkTextTitle,
+    text: colors.grey50,
     paper: colors.darkPaper,
     primary: colors.primaryDark,
     secondary: colors.secondaryDark,
-    warning: colors.warning,
+    warning: colors.warningDark,
     error: colors.errorDark,
-    orange: colors.orangeDark,
   },
   fontSizes: {
     small: '12px',
     medium: '16px',
     large: '20px',
   },
-  // 기타 변수들 ...
 };
 
 export default themes;
