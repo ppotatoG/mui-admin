@@ -31,11 +31,16 @@ import ThemeContextProvider from '@contexts/ThemeContext';
 import { ThemeProvider } from 'styled-components';
 import themes from '@styles/themes';
 
+import Header from '@layout/Header';
+import Navigate from '@layout/Navigate';
+
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <I18nextProvider i18n={i18n}>
       <ThemeContextProvider>
         <ThemeProvider theme={themes.light}>
+          <Header />
+          <Navigate />
           <Component {...pageProps} />
         </ThemeProvider>
       </ThemeContextProvider>
