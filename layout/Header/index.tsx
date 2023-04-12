@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AppBar, Box } from '@mui/material';
+import React, { useContext, useState } from 'react';
+import { AppBar } from '@mui/material';
 import { ThemeContext } from '@contexts/ThemeContext';
 import UserMenu from '@layout/Header/UserMenu';
 import CustomToolbar from '@layout/Header/CustomToolbar';
@@ -21,19 +21,14 @@ const Header: React.FC = () => {
 
   const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
 
-  useEffect(() => {
-    console.log(isDarkMode ? 'dark' : 'light');
-    console.log(themes.dark);
-    console.log(themes.light);
-  }, [isDarkMode]);
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <>
       <AppBar
         position="static"
         style={{
           background: isDarkMode ? themes.dark.paper : themes.light.primary,
           fontSize: themes.fontSizes.medium,
+          color: themes.light.paper,
         }}
       >
         <CustomToolbar
@@ -49,7 +44,7 @@ const Header: React.FC = () => {
         isMenuOpen={isMenuOpen}
         handleMenuClose={handleMenuClose}
       />
-    </Box>
+    </>
   );
 };
 

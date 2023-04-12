@@ -20,7 +20,7 @@ const Button = styled.button<IButton>`
     if (variant === 'outline' || variant === 'text') {
       return isDarkMode ? themes.dark[`${color}`] : themes.light[`${color}`];
     } else {
-      return isDarkMode ? themes.dark.text : themes.light.text;
+      return isDarkMode ? themes.light.text : themes.dark.text;
     }
   }};
 

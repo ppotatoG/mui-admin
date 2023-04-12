@@ -1,0 +1,21 @@
+.root {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav section";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 140px 1fr;
+  height: 100vh;
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+section {
+  grid-area: section;
+}

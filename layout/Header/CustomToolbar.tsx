@@ -12,6 +12,7 @@ import {
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import SearchBar from '@layout/Header/SearchBar';
+import themes from '@styles/themes';
 
 interface ICustomToolbarProp {
   isDarkMode: boolean;
@@ -41,10 +42,7 @@ const CustomToolbar = ({
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <FormControlLabel
             control={
-              <MaterialUISwitch
-                checked={isDarkMode}
-                onChange={toggleDarkMode}
-              />
+              <MaterialUISwitch isDark={isDarkMode} onChange={toggleDarkMode} />
             }
             label=""
           />
@@ -74,7 +72,7 @@ const CustomToolbar = ({
   );
 };
 
-const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+const MaterialUISwitch = styled(Switch)(({ isDark }: { isDark: boolean }) => ({
   width: 62,
   height: 34,
   padding: 7,
@@ -92,12 +90,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       },
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+        backgroundColor: isDark
+          ? themes.dark.background
+          : themes.light.background,
       },
     },
   },
   '& .MuiSwitch-thumb': {
-    backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
+    backgroundColor: isDark ? themes.dark.background : themes.light.primary,
     width: 32,
     height: 32,
     '&:before': {
@@ -116,7 +116,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-track': {
     opacity: 1,
-    backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+    backgroundColor: isDark ? '#8796A5' : '#aab4be',
     borderRadius: 20 / 2,
   },
 }));
