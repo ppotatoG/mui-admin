@@ -21,7 +21,6 @@ interface ICustomToolbarProp {
   handleProfileMenuOpen: (event: React.MouseEvent<HTMLElement>) => void;
 }
 const CustomToolbar = ({
-  isDarkMode,
   toggleDarkMode,
   menuId,
   handleProfileMenuOpen,
@@ -41,9 +40,7 @@ const CustomToolbar = ({
       <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <FormControlLabel
-            control={
-              <MaterialUISwitch isDark={isDarkMode} onChange={toggleDarkMode} />
-            }
+            control={<MaterialUISwitch onChange={toggleDarkMode} />}
             label=""
           />
         </IconButton>
@@ -72,7 +69,7 @@ const CustomToolbar = ({
   );
 };
 
-const MaterialUISwitch = styled(Switch)(({ isDark }: { isDark: boolean }) => ({
+const MaterialUISwitch = styled(Switch)(() => ({
   width: 62,
   height: 34,
   padding: 7,
@@ -90,14 +87,12 @@ const MaterialUISwitch = styled(Switch)(({ isDark }: { isDark: boolean }) => ({
       },
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: isDark
-          ? themes.dark.background
-          : themes.light.background,
+        backgroundColor: themes.light.background,
       },
     },
   },
   '& .MuiSwitch-thumb': {
-    backgroundColor: isDark ? themes.dark.background : themes.light.primary,
+    backgroundColor: themes.light.primary,
     width: 32,
     height: 32,
     '&:before': {
@@ -116,7 +111,7 @@ const MaterialUISwitch = styled(Switch)(({ isDark }: { isDark: boolean }) => ({
   },
   '& .MuiSwitch-track': {
     opacity: 1,
-    backgroundColor: isDark ? '#8796A5' : '#aab4be',
+    backgroundColor: '#aab4be',
     borderRadius: 20 / 2,
   },
 }));
