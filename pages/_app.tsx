@@ -35,21 +35,24 @@ import themes from '@styles/themes';
 import Header from '@layout/Header';
 import Navigate from '@layout/Navigate';
 import Section from '@layout/Section';
+import AuthProvider from '@provider/authProvider';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <I18nextProvider i18n={i18n}>
-      <ThemeContextProvider>
-        <ThemeProvider theme={themes.light}>
-          <div className="root">
-            <Header />
-            <Navigate />
-            <Section>
-              <Component {...pageProps} />
-            </Section>
-          </div>
-        </ThemeProvider>
-      </ThemeContextProvider>
+      <AuthProvider>
+        <ThemeContextProvider>
+          <ThemeProvider theme={themes.light}>
+            <div className="root">
+              <Header />
+              <Navigate />
+              <Section>
+                <Component {...pageProps} />
+              </Section>
+            </div>
+          </ThemeProvider>
+        </ThemeContextProvider>
+      </AuthProvider>
     </I18nextProvider>
   );
 };
