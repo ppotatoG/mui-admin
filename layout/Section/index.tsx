@@ -1,7 +1,5 @@
-import { ReactNode, useContext } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
-import themes from '@styles/themes';
-import { ThemeContext } from '@contexts/ThemeContext';
 
 interface ISectionProp {
   children: ReactNode;
@@ -12,12 +10,8 @@ const Section = ({ children }: ISectionProp) => {
 };
 
 const CustomSection = styled.section`
-  padding: ${() => themes.fontSizes.medium};
-
-  background-color: ${() => {
-    const { isDarkMode } = useContext(ThemeContext);
-    return isDarkMode ? themes.dark.background : themes.light.background;
-  }};
+  padding: var(--medium);
+  background: ${({ theme }) => theme.background};
 `;
 
 export default Section;

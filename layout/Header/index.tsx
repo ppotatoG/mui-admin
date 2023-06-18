@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { AppBar } from '@mui/material';
-import { ThemeContext } from '@contexts/ThemeContext';
 import UserMenu from '@layout/Header/UserMenu';
 import CustomToolbar from '@layout/Header/CustomToolbar';
 import themes from '@styles/themes';
+import { useTheme } from '@hook/useTheme';
 
 const Header: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -19,21 +19,21 @@ const Header: React.FC = () => {
 
   const menuId = 'primary-search-account-menu';
 
-  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
+  const { theme, toggleTheme, isDarkMode } = useTheme();
 
   return (
     <>
       <AppBar
         position="static"
         style={{
-          background: isDarkMode ? themes.dark.paper : themes.light.primary,
-          fontSize: themes.fontSizes.medium,
-          color: themes.light.paper,
+          background: themes[theme].background,
+          color: themes[theme].text,
+          fontSize: 'var(--medium)',
         }}
       >
         <CustomToolbar
           isDarkMode={isDarkMode}
-          toggleDarkMode={toggleDarkMode}
+          toggleDarkMode={toggleTheme}
           menuId={menuId}
           handleProfileMenuOpen={handleProfileMenuOpen}
         />

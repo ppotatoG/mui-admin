@@ -6,7 +6,6 @@ import {
   IconButton,
   styled,
   Switch,
-  Typography,
   Toolbar,
 } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -27,14 +26,6 @@ const CustomToolbar = ({
 }: ICustomToolbarProp) => {
   return (
     <Toolbar>
-      <Typography
-        variant="h6"
-        noWrap
-        component="div"
-        sx={{ display: { xs: 'none', sm: 'block' } }}
-      >
-        MUI
-      </Typography>
       <SearchBar />
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

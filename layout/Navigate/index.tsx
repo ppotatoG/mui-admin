@@ -1,11 +1,19 @@
+import React from 'react';
 import styled from 'styled-components';
-import { useContext } from 'react';
-import themes from '@styles/themes';
-import { ThemeContext } from '@contexts/ThemeContext';
+import { Typography } from '@mui/material';
 
 const Navigate = () => {
   return (
     <Nav>
+      <Typography
+        variant="h6"
+        noWrap
+        component="div"
+        sx={{ display: { xs: 'none', sm: 'block' } }}
+      >
+        MUI
+      </Typography>
+
       <ul>
         <li>menu1</li>
         <li>menu2</li>
@@ -19,12 +27,9 @@ const Navigate = () => {
 };
 
 const Nav = styled.nav`
-  background-color: ${() => {
-    const { isDarkMode } = useContext(ThemeContext);
-    return isDarkMode ? themes.dark.paper : themes.light.primary;
-  }};
-  color: ${() => themes.light.paper};
-  padding: ${() => themes.fontSizes.medium};
+  color: ${({ theme }) => theme.text};
+  padding: var(--medium);
+  background: ${({ theme }) => theme.primary};
 `;
 
 export default Navigate;

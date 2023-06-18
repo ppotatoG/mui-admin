@@ -19,11 +19,6 @@ const themes = {
     warning: colors.warningMain,
     error: colors.errorMain,
   },
-  fontSizes: {
-    small: '0.75rem',
-    medium: '1rem',
-    large: '1.25rem',
-  },
 };
 
 export default themes;

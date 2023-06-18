@@ -31,18 +31,19 @@ i18n
 import { ThemeProvider } from 'styled-components';
 import ThemeContextProvider from '@contexts/ThemeContext';
 import themes from '@styles/themes';
-
+import { useTheme } from '@hook/useTheme';
 import Header from '@layout/Header';
 import Navigate from '@layout/Navigate';
 import Section from '@layout/Section';
 import AuthProvider from '@provider/authProvider';
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const { theme } = useTheme();
   return (
     <I18nextProvider i18n={i18n}>
       <AuthProvider>
         <ThemeContextProvider>
-          <ThemeProvider theme={themes.light}>
+          <ThemeProvider theme={themes[theme]}>
             <div className="root">
               <Header />
               <Navigate />
